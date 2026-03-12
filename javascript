@@ -2,38 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('idForm');
 
     form.addEventListener('submit', (e) => {
-        // Use the JavaScript Event Object to prevent page refresh
-        e.preventDefault(); 
+        e.preventDefault(); // Using JavaScript Event Object [cite: 10]
 
-        // 1. Accessing Elements
+        // Accessing elements and values [cite: 6]
         const fullName = document.getElementById('fullName').value;
         const nickname = document.getElementById('nickname').value;
         const dob = document.getElementById('dob').value;
         const address = document.getElementById('address').value;
         const email = document.getElementById('email').value;
 
-        // 2. Form Validation Basics
+        // Simple Form Validation [cite: 11]
         if (!fullName || !nickname || !dob || !address || !email) {
-            alert("Please fill in all fields.");
+            alert("Please fill in all fields!");
             return;
         }
 
-        // 3. Modifying Element Properties and Content
-        // Map the inputs to the span elements in the ID card
-        document.getElementById('outName').textContent = fullName;
-        document.getElementById('outNick').textContent = nickname;
-        document.getElementById('outDob').textContent = dob;
-        document.getElementById('outAddr').textContent = address;
-        document.getElementById('outEmail').textContent = email;
+        // Updating ID Card Content [cite: 7]
+        document.getElementById('resName').textContent = fullName;
+        document.getElementById('resNick').textContent = nickname;
+        document.getElementById('resDob').textContent = dob;
+        document.getElementById('resAddr').textContent = address;
+        document.getElementById('resEmail').textContent = email;
 
-        // 4. Popup the full ID info
-        const confirmationMessage = `ID Generated Successfully!\n\n` +
-                                   `Name: ${fullName}\n` +
-                                   `Nickname: ${nickname}\n` +
-                                   `DOB: ${dob}\n` +
-                                   `Address: ${address}\n` +
-                                   `Email: ${email}`;
-        
-        alert(confirmationMessage);
+        // Popup with full ID info
+        alert(`ID Generated!\nName: ${fullName}\nNickname: ${nickname}\nDOB: ${dob}\nAddress: ${address}\nEmail: ${email}`);
     });
 });
